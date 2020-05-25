@@ -1,8 +1,9 @@
 import React from "react";
+import cls from './Profile.module.css'
 
 const Profile = () => {
     return (
-        <div className='content'>
+        <div className={cls.content}>
             <div>
                 <img src="https://clck.ru/Ndbn3" alt=""/>
             </div>
