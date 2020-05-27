@@ -1,13 +1,13 @@
 import React from "react";
 import cls from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={cls.item}>
             <img src="https://sun9-66.userapi.com/c633720/v633720206/2ed40/68zDViEI0TA.jpg?ava=1" alt=""/>
-            Post 1
+            {props.message}
             <div>
-                <span>Like</span>
+                <span>Like {props.likeCounts}</span>
             </div>
         </div>
 

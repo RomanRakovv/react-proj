@@ -2,8 +2,15 @@
     grid-area: n;
     background-color: burlywood;
     text-align: center;
+    padding: 20px;
 }
 
-.item {
+.item a {
     color: aqua;
+    text-decoration: none;
 }
+
+.item a.activeLink {
+    color: gold;
+}
+
