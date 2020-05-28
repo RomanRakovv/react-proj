@@ -2,18 +2,23 @@ import React from "react";
 import cls from './MyPosts.module.css'
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (props) => {
+
+
+    let posts = props.postsData.map( p => <Post message={p.message} likeCounts={p.likeCount} />)
+
     return (
-        <div>
-            My post
+        <div className={cls.postsBlock}>
+            <h3>My post</h3>
             <div>
-                <textarea></textarea>
+                <div>
+                    <textarea></textarea>
+                </div>
                 <button>Add post</button>
                 <button>Remove post</button>
             </div>
-            <div>
-                <Post message="Ведро с болтами" likeCounts='23' />
-                <Post message="Машина мечты" likeCounts='100' />
+            <div className={cls.posts}>
+                {posts}
             </div>
         </div>
     )
