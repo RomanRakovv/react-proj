@@ -1,0 +1,10 @@
+.sidebar {
+    background-color: burlywood;
+    text-align: center;
+    padding: 20px;
+}
+
+.friendName{
+    display: inline-flex;
+}
+
