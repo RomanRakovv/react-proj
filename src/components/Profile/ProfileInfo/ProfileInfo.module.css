@@ -1,3 +1,6 @@
+.avatar_image img{
+    height: 400px;
+}
 .descriptionBlock {
     padding: 10px;
 }

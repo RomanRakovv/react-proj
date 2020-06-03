@@ -1,11 +1,10 @@
 import React from "react";
 import cls from './ProfileInfo.module.css'
-import MyPosts from "./../MyPost/MyPosts";
 
 const ProfileInfo = () => {
     return (
         <div>
-            <div>
+            <div className={cls.avatar_image}>
                 <img src="https://a.d-cd.net/547c385s-960.jpg" alt=""/>
             </div>
             <div className={cls.descriptionBlock}>
