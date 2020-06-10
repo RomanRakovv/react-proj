@@ -6,8 +6,8 @@ let initialStore = [
 ]
 
 let sidebarReducer = (state = initialStore, action) => {
+    return [...state]
 
-    return state;
 }
 
 export default sidebarReducer;
