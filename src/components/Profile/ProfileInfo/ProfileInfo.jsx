@@ -1,14 +1,15 @@
 import React from "react";
 import cls from './ProfileInfo.module.css'
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
     return (
         <div>
+            <h1>{props.profile.fullName}</h1>
             <div className={cls.avatar_image}>
-                <img src="https://a.d-cd.net/547c385s-960.jpg" alt=""/>
+                <img src={props.profile.photos.large} alt=""/>
             </div>
             <div className={cls.descriptionBlock}>
-                avatar + description
+                <p>{props.profile.aboutMe}</p>
             </div>
         </div>
     )

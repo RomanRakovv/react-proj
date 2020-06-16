@@ -1,6 +1,7 @@
 import React from "react";
 import cls from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
+import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
     let totalPage = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -20,14 +21,17 @@ let Users = (props) => {
                     })
                 }
             </div>
-            <div>
+            <div className={cls.users}>
                 {
                     props.users.map(u =>
-                        <div key={u.id} className={cls.users}>
+                        <div key={u.id} className={cls.user}>
                         <span>
                             <div>
-                                <img className={cls.userPhoto} src={u.photos.small != null ? u.photos.small : userPhoto}
-                                     alt='Аватарка'/>
+                                <NavLink to={`/profile/${u.id}`}>
+                                    <img className={cls.userPhoto} src={!u.photos.small ? userPhoto : u.photos.small}
+                                         alt='Аватарка'/>
+                                </NavLink>
+
                             </div>
                             <div>
                                 {
@@ -42,8 +46,8 @@ let Users = (props) => {
                         </span>
                             <span>
                             <span>
-                                <div>{u.name}</div>
-                                <div>{u.status}</div>
+                                <div className={cls.userName}>{u.name}</div>
+                                <div className={cls.userName}>{u.status}</div>
                             </span>
                             <span>
                                 {/*<div>{u.location.countryName}</div>*/}
