@@ -2,13 +2,23 @@
     width: 70px;
 }
 
-.pages{
+.pages_block{
     font-size: 25px;
+    padding: 10px;
+}
+
+.pages{
+    padding: 1px 8px 1px 8px;
+    border: 4px outset #d2691e;
+    cursor: pointer;
+
+
 }
 
 .currentPage {
+    padding: 1px 8px 1px 8px;
     font-weight: bold;
-    cursor: pointer;
+    border: 4px double gold;
 }
 
 .users{
