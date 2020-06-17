@@ -5,22 +5,30 @@
 .pages_block{
     font-size: 25px;
     padding: 10px;
+    width: 900px;
 }
 
 .pages{
     padding: 1px 8px 1px 8px;
     border: 4px outset #d2691e;
     cursor: pointer;
+    display: inline-block;
 }
 
-.userName{
-    white-space: nowrap;
+.name{
+    white-space: normal;
+}
+
+.status{
+    white-space: normal;
 }
 
 .currentPage {
     padding: 1px 8px 1px 8px;
     font-weight: bold;
     border: 4px double gold;
+    display: inline-block;
+
 }
 
 .users{

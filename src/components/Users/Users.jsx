@@ -46,8 +46,8 @@ let Users = (props) => {
                         </span>
                             <span>
                             <span>
-                                <div className={cls.userName}>{u.name}</div>
-                                <div className={cls.userName}>{u.status}</div>
+                                <div className={cls.name}>{u.name}</div>
+                                <div className={cls.status}>{u.status}</div>
                             </span>
                             <span>
                                 {/*<div>{u.location.countryName}</div>*/}
