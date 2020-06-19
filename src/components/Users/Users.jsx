@@ -2,7 +2,6 @@ import React from "react";
 import cls from "./Users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 
 let Users = (props) => {
     let totalPage = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -36,33 +35,15 @@ let Users = (props) => {
                             </div>
                             <div>
                                 {u.followed
-                                    ? <button onClick={() => {
-                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                                            {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY": "fa82a974-1258-43cd-b3d6-9dcd8a694c8f",
-                                                }
-                                            })
-                                            .then(response => {
-                                                if (response.data.resultCode === 0) {
-                                                    props.onUnfollow(u.id)
-                                                }
-                                            })}}>Unfollow</button>
+                                    ? <button disabled={props.isFollowingProgress.some(id => id === u.id)}
+                                              onClick={() => {
+                                                  props.unFollowAccept(u.id)
+                                              }}>Отписаться</button>
 
-                                    : <button onClick={() => {
-                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
-                                            {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY": "fa82a974-1258-43cd-b3d6-9dcd8a694c8f",
-                                                }
-                                            })
-                                            .then(response => {
-                                                if (response.data.resultCode === 0) {
-                                                    props.onFollow(u.id)
-                                                }
-                                            })}}>Follow</button>
+                                    : <button disabled={props.isFollowingProgress.some(id => id === u.id)}
+                                              onClick={() => {
+                                                  props.followAccept(u.id)
+                                              }}>Подписаться</button>
                                 }
                             </div>
                         </span>
