@@ -7,7 +7,9 @@ const Header = (props) => {
         <header className={cls.header}>
             <img src="https://listcarbrands.com/wp-content/uploads/2015/10/logo-Toyota.png" alt=""/>
             <div className={cls.loginBlock}>
-                { props.isAuth || <NavLink to={'/login'}>Login</NavLink> }
+                {props.isAuth
+                    ? <div>{props.login}</div>
+                    : <NavLink to={'/login'}>Login</NavLink>}
             </div>
         </header>
     )

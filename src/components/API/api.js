@@ -1,5 +1,4 @@
 import * as axios from "axios";
-import {setAuthUser} from "../../redux/auth-reducer";
 
 
 const instance = axios.create({
@@ -35,7 +34,7 @@ export const profileAPI = {
 }
 
 export const authAPI = {
-    getAuthData() {
+    me() {
         return instance.get(`auth/me`)
     }
 }
