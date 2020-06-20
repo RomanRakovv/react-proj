@@ -33,20 +33,20 @@ let dialogsReducer = (state = initialStore, action) => {
             let newMessageText = state.newMessageText;
             return {
                 ...state,
-                messagesData: [...state.messagesData, {id: 3, message: newMessageText}],
+                messagesData: [...state.messagesData, {id: 4, message: newMessageText}],
                 newMessageText: '',
             }
         case UPDATE_NEW_MESSAGE_TEXT:
             return {
                 ...state,
-                newMessageText: action.newMessageText,
+                newMessageText: action.text,
             }
         default:
             return state;
     }
 }
 
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: text})
+export const sendMessage = () => ({type: SEND_MESSAGE})
+export const updateNewMessageText = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, text})
 
 export default dialogsReducer;

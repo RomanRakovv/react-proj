@@ -92,6 +92,7 @@ export const getUsers = (currentPage, pageSize) => {
             });
     }
 }
+
 export const followAccept = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId))
@@ -104,6 +105,7 @@ export const followAccept = (userId) => {
             })
     }
 }
+
 export const unFollowAccept = (userId) => {
     return (dispatch) => {
         dispatch(toggleIsFollowingProgress(true, userId))

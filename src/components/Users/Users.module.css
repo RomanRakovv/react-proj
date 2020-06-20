@@ -2,6 +2,15 @@
     width: 70px;
 }
 
+.userspage {
+    display: inline-block;
+    padding: 20px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
 .pages_block{
     font-size: 25px;
     padding: 10px;

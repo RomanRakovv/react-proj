@@ -1,7 +1,27 @@
 import React from "react";
-import {sendMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
+import {sendMessage, updateNewMessageText} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
+import {compose} from "redux";
+import DialogsItem from "./DialogsItem/DialogsItem";
+import Message from "./Message/Message";
+
+
+class DialogsContainer extends React.Component {
+    componentDidMount() {
+        this.dialogs = this.props.dialogsData.map(d => <DialogsItem name={d.name} id={d.id} imgUrl={d.imgUrl}/>)
+        this.messages = this.props.messagesData.map(m => <Message message={m.message} id={m.id}/>)
+    }
+
+    render() {
+        return <Dialogs dialogs={this.dialogs}
+                        messages={this.messages}
+                        updateNewMessageText={this.props.updateNewMessageText}
+                        sendMessage={this.props.sendMessage}
+                        newMessageText={this.props.newMessageText}
+        />
+    }
+}
 
 
 const mapStateToProps = (state) => {
@@ -11,18 +31,8 @@ const mapStateToProps = (state) => {
         newMessageText: state.dialogsPage.newMessageText,
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        sendMessage: () => {
-            dispatch(sendMessageActionCreator());
-        },
-        updateNewMessageText: (text) => {
-            dispatch(updateNewMessageTextActionCreator(text));
-        }
 
-    }
-}
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, {updateNewMessageText, sendMessage})
+)(DialogsContainer);

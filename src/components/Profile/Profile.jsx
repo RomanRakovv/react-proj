@@ -1,13 +1,13 @@
 import React from "react";
 import MyPostsContainer from "./MyPost/MyPostsContainer";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import ProfileInfoContainer from "./ProfileInfo/ProfileInfoContainer";
 
 
 class Profile extends React.Component{
     render() {
         return (
             <div>
-                <ProfileInfo {...this.props}/>
+                <ProfileInfoContainer {...this.props}/>
                 <MyPostsContainer/>
             </div>
         )
