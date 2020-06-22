@@ -5,18 +5,16 @@ class ProfileStatus extends React.Component {
         return (
             <div>
                 {this.props.state.editMode &&
-                    <input autoFocus={true} onBlur={this.props.deactivateEditMode}
+                    <input onChange={ this.props.onStatusChange } autoFocus={true} onBlur={this.props.deactivateEditMode}
                            value={this.props.state.status}
                            placeholder={'Введите ваш статус'}
                     />
                 }
                 {!this.props.state.editMode &&
                 <div>
-                    <span onClick={this.props.activateEditMode}>{this.props.state.status}</span>
+                    <span onDoubleClick={this.props.activateEditMode}>{this.props.status || '----'}</span>
                 </div>
                 }
-
-
             </div>
         )
     }

@@ -7,7 +7,7 @@ class Profile extends React.Component{
     render() {
         return (
             <div>
-                <ProfileInfoContainer {...this.props}/>
+                <ProfileInfoContainer {...this.props} />
                 <MyPostsContainer/>
             </div>
         )

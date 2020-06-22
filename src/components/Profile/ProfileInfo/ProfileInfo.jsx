@@ -9,7 +9,7 @@ class ProfileInfo extends React.Component {
         return (
             <div>
                 <h1>{this.props.profile.fullName}</h1>
-                <ProfileStatusContainer {...this.props}/>
+                <ProfileStatusContainer {...this.props} />
                 <div className={cls.avatar_image}>
                     <img src={this.props.profile.photos.large || userPhoto} alt="нету"/>
                 </div>
