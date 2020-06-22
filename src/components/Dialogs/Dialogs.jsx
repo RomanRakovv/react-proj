@@ -1,8 +1,12 @@
 import React from "react";
 import cls from './Dialogs.module.css'
+import DialogsForm from "./AddMessageForm";
 
 
 let Dialogs = (props) => {
+    let addNewMessage = (value) =>{
+        props.sendMessage(value.newMessageBody);
+    }
     return (
         <div className={cls.dialogs}>
             <div>
@@ -11,18 +15,9 @@ let Dialogs = (props) => {
             <div className={cls.messages}>
                 <div>{props.messages}</div>
             </div>
-            <div>
-                <textarea placeholder='Введите сообщение...'
-                          onChange={(e) => props.updateNewMessageText(e.target.value)}
-                          value={props.newMessageText}
-                />
-            </div>
-            <div>
-                <button onClick={()=>props.sendMessage()}>Add message</button>
-            </div>
+            <DialogsForm onSubmit={addNewMessage}/>
         </div>
     )
-
 }
 
 export default Dialogs;

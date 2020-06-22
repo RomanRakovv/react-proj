@@ -13,9 +13,7 @@ class DialogsContainer extends React.Component {
         this.messages = this.props.messagesData.map(m => <Message message={m.message} id={m.id}/>)
         return <Dialogs dialogs={this.dialogs}
                         messages={this.messages}
-                        updateNewMessageText={this.props.updateNewMessageText}
                         sendMessage={this.props.sendMessage}
-                        newMessageText={this.props.newMessageText}
         />
     }
 }
@@ -25,11 +23,10 @@ const mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogsPage.dialogsData,
         messagesData: state.dialogsPage.messagesData,
-        newMessageText: state.dialogsPage.newMessageText,
     }
 }
 
 
 export default compose(
-    connect(mapStateToProps, {updateNewMessageText, sendMessage})
+    connect(mapStateToProps, {sendMessage})
 )(DialogsContainer);
