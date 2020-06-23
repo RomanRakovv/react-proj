@@ -1,14 +1,21 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
+import {renderField} from "../common/Forms-controls/Forms-controls";
+import {maxLength, required} from "../../utils/validators/validators";
 
-
-let DialogsForm = (props) => {
+const maxLength10 = maxLength(10)
+let AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <Field placeholder='Введите сообщение...' name={'newMessageBody'} component={'textarea'}/>
+            <Field type={'input'}
+                   placeholder='Введите сообщение...'
+                   name={'newMessageBody'}
+                   component={renderField}
+                   validate={[required, maxLength10]}
+            />
             <button>Add message</button>
         </form>
     )
 }
 
-export default reduxForm({form: 'newMessageBody'})(DialogsForm)
+export default reduxForm({form: 'newMessageBody'})(AddMessageForm)

@@ -1,6 +1,6 @@
 import React from "react";
 import cls from './Dialogs.module.css'
-import DialogsForm from "./AddMessageForm";
+import AddMessageForm from "./AddMessageForm";
 
 
 let Dialogs = (props) => {
@@ -15,7 +15,7 @@ let Dialogs = (props) => {
             <div className={cls.messages}>
                 <div>{props.messages}</div>
             </div>
-            <DialogsForm onSubmit={addNewMessage}/>
+            <AddMessageForm onSubmit={addNewMessage}/>
         </div>
     )
 }
