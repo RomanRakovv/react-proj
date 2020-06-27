@@ -6,7 +6,7 @@ import cls from './Sidebar-friend.module.css'
 let SidebarFriend = (props) => {
     return (
 
-            <div className={cls.friendName}>
+            <div key={props.id} className={cls.friendName}>
                 {props.friendName}
             </div>
 

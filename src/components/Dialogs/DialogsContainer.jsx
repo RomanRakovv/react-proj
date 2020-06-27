@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
-import {withAuthRedirect} from "../../hoc/authRedirect";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 class DialogsContainer extends React.Component {

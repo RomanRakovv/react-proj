@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {followAccept, getUsers, setCurrentPage, unFollowAccept} from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
-import {withAuthRedirect} from "../../hoc/authRedirect";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
 
@@ -51,7 +51,6 @@ export default compose(
         getUsers,
         followAccept,
         unFollowAccept,
-
     }),
     withAuthRedirect,
 )(UsersContainer);

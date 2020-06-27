@@ -5,11 +5,10 @@ import Profile from "./Profile";
 import Preloader from "../common/Preloader/Preloader";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {withAuthRedirect} from "../../hoc/authRedirect";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
-        let userId = this.props.match.params.userId || this.props.id
+        let userId = this.props.match.params.userId || this.props.id || this.props.history.push('/login')
         this.props.getProfile(userId)
         this.props.getStatus(userId)
     }
@@ -26,14 +25,13 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
+        id: state.auth.id,
         profile: state.profilePage.profile,
         status: state.profilePage.status,
-        id: state.auth.id,
     }
 }
 
 export default compose(
     connect(mapStateToProps, {getProfile, getStatus, updateStatus}),
     withRouter,
-    withAuthRedirect
 )(ProfileContainer);
