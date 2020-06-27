@@ -1,20 +1,28 @@
 import React from "react";
 import {connect} from "react-redux";
-import {followAccept, getUsers, setCurrentPage, unFollowAccept} from "../../redux/users-reducer";
+import {followAccept, requestUsers, setCurrentPage, unFollowAccept} from "../../redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {
+    getCurrentPageSelector,
+    getIsFetchingSelector,
+    getIsFollowingProgressSelector,
+    getPageSizeSelector,
+    getTotalUsersCountSelector,
+    getUsers
+} from "../../redux/users-selectors";
 
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        this.props.requestUsers(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
-        this.props.getUsers(pageNumber, this.props.pageSize)
+        this.props.requestUsers(pageNumber, this.props.pageSize)
     }
 
     render() {
@@ -36,19 +44,19 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        isFollowingProgress: state.usersPage.isFollowingProgress,
+        users: getUsers(state),
+        pageSize: getPageSizeSelector(state),
+        totalUsersCount: getTotalUsersCountSelector(state),
+        currentPage: getCurrentPageSelector(state),
+        isFetching: getIsFetchingSelector(state),
+        isFollowingProgress: getIsFollowingProgressSelector(state),
     }
 }
 
 export default compose(
     connect(mapStateToProps, {
         setCurrentPage,
-        getUsers,
+        requestUsers,
         followAccept,
         unFollowAccept,
     }),
