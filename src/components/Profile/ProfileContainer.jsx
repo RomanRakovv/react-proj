@@ -13,11 +13,19 @@ class ProfileContainer extends React.Component {
         this.props.getStatus(userId)
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.match.params.userId !== this.props.match.params.userId) {
+            let userId = this.props.match.params.userId || this.props.id || this.props.history.push('/login')
+            this.props.getProfile(userId)
+            this.props.getStatus(userId)
+        }
+    }
+
     render() {
         return (
             <>
                 {!this.props.profile ? <Preloader/> :
-                    <Profile {...this.props} />}
+                    <Profile {...this.props} isOwner={!this.props.match.params.userId} />}
             </>
         )
     }

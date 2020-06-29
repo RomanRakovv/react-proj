@@ -5,13 +5,15 @@ import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusContainerWithHo
 
 
 class ProfileInfo extends React.Component {
+
     render() {
         return (
             <div>
                 <h1>{this.props.profile.fullName}</h1>
                 <ProfileStatusWithHooks {...this.props} />
                 <div className={cls.avatar_image}>
-                    <img src={this.props.profile.photos.large || userPhoto} alt="нету"/>
+                    <img src={this.props.profile.photos.large || userPhoto}/>
+                    {this.props.isOwner && <input type={'file'} onChange={this.props.onMainPhotoSelected } />}
                 </div>
                 <div className={cls.descriptionBlock}>
                     <p>{this.props.profile.aboutMe}</p>
