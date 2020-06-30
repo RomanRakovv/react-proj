@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import Preloader from "../common/Preloader/Preloader";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
+import cls from './Profile.module.css'
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -25,7 +26,9 @@ class ProfileContainer extends React.Component {
         return (
             <>
                 {!this.props.profile ? <Preloader/> :
-                    <Profile {...this.props} isOwner={!this.props.match.params.userId} />}
+                    <div className={cls.mainProfile}>
+                        <Profile {...this.props} isOwner={!this.props.match.params.userId} />
+                    </div>}
             </>
         )
     }

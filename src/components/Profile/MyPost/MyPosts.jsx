@@ -5,7 +5,7 @@ import AddNewPostForm from "./AddNewPostForm";
 
 
 const MyPosts = (props) => {
-    let posts = props.postsData.map( p => <Post message={p.message} likeCounts={p.likeCount} />)
+    let posts = props.postsData.map( p => <Post key={p.id} message={p.message} likeCounts={p.likeCount} />)
 
     let addNewPost = (value) => {
         props.addPost(value.newPostText);

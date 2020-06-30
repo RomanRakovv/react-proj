@@ -12,7 +12,7 @@ class ProfileInfo extends React.Component {
                 <h1>{this.props.profile.fullName}</h1>
                 <ProfileStatusWithHooks {...this.props} />
                 <div className={cls.avatar_image}>
-                    <img src={this.props.profile.photos.large || userPhoto}/>
+                    <img src={this.props.profile.photos.large || userPhoto} alt={'нету'}/>
                     {this.props.isOwner && <input type={'file'} onChange={this.props.onMainPhotoSelected } />}
                 </div>
                 <div className={cls.descriptionBlock}>

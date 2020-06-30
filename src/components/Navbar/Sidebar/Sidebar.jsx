@@ -4,7 +4,7 @@ import SidebarFriend from "./Sidebar-friend/Sidebar-friend";
 
 
 const Sidebar = (props) => {
-    let friends = props.sidebar.map(f => <SidebarFriend id={f.id} friendName={f.friendName}/>)
+    let friends = props.sidebar.map(f => <SidebarFriend key={f.id} id={f.id} friendName={f.friendName}/>)
 
     return (
 
