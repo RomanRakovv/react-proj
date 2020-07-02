@@ -6,6 +6,11 @@ import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusContainerWithHo
 
 class ProfileInfo extends React.Component {
 
+    componentDidMount() {
+        let str = 0;
+        console.log(str);
+    }
+
     render() {
         return (
             <div>

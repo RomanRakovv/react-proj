@@ -1,6 +1,16 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
-let initialStore = {
+type dialogsDataType = {
+    id:number
+    name:string
+    imgUrl:string
+}
+type messagesDataType = {
+    id:number
+    message:string
+}
+
+let initialState = {
     dialogsData: [
         {
             id: 1,
@@ -17,15 +27,17 @@ let initialStore = {
             name: 'Рома',
             imgUrl: 'https://pm1.narvii.com/6960/b96261428e66115921eb208de561af56232f451br1-400-400v2_uhq.jpg'
         },
-    ],
+    ] as Array<dialogsDataType>,
     messagesData: [
         {id: 1, message: 'Privet'},
         {id: 2, message: 'займи сотку'},
         {id: 3, message: 'как дела?'},
-    ],
+    ] as Array<messagesDataType>,
 }
 
-let dialogsReducer = (state = initialStore, action) => {
+export type initialStateType = typeof initialState
+
+let dialogsReducer = (state = initialState, action:any):initialStateType => {
     switch (action.type) {
         case SEND_MESSAGE:
             return {
@@ -37,6 +49,11 @@ let dialogsReducer = (state = initialStore, action) => {
     }
 }
 
-export const sendMessage = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody})
+type sendMessageType = {
+    type: typeof SEND_MESSAGE,
+    newMessageBody:string
+}
+
+export const sendMessage = (newMessageBody:string):sendMessageType => ({type: SEND_MESSAGE, newMessageBody})
 
 export default dialogsReducer;

@@ -1,8 +1,9 @@
 import React from "react";
-import cls from './News.module.css'
 
+type Props = {
 
-const News = (props) => {
+}
+const News: React.FC<Props> = (props) => {
     return (
         <div>
             News
